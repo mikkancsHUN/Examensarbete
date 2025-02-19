@@ -1,12 +1,17 @@
 <template>
     <div>
-      <h1>Home Page</h1>
+      <Header />
     </div>
   </template>
   
   <script>
+  import Header from '../components/Header/Header.vue'
+
   export default {
-    name: 'HomeView'
+    name: 'HomeView',
+    components: {
+      Header
+    }
   }
   </script>
   
