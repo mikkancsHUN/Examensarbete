@@ -8,17 +8,30 @@
 }
 
 :root {
-  --clr-primary-color: #f9f9f9;
-  --clr-secondary-color: #1a1a1a;
-  --clr-tertiary-color: #646cff;
-  --clr-quaternary-color: #535bf2;
-  --clr-hover-color: #eea3dd;
+  --clr-primary: #f9f9f9;
+  --clr-secondary: #1a1a1a;
+  --clr-icon: #6c6c6c;
+  --clr-tertiary: #646cff;
+  --clr-quaternary: #535bf2;
+  --clr-hover: #eea3dd;
 
   --text-primary: "Poppins", sans-serif
 }
 
 button {
   cursor: pointer;
+}
+
+/* GOOGLE ICON STYLES */
+.material-symbols-outlined {
+  color: var(--clr-icon);
+  border-radius: 100px;
+  padding: 5px;
+  transition: 0.2s;
+}
+.material-symbols-outlined:hover {
+  color: var(--clr-hover);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 

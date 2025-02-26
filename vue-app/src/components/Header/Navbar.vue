@@ -21,7 +21,6 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: rgb(243, 243, 243);
         padding: 20px;
         width: 100%;
     }
@@ -41,14 +40,14 @@ export default {
         color: rgb(0, 0, 0);
     }
     .header__navbar-list-item:hover {
-        color: var(--clr-hover-color);
+        color: var(--clr-hover);
     }
     .header__navbar-list-item::after {
         content: '';
         display: block;
         width: 0;
         height: 2px;
-        background-color: var(--clr-hover-color);
+        background-color: var(--clr-hover);
         transition: width 0.3s;
     }
     .header__navbar-list-item:hover::after {
