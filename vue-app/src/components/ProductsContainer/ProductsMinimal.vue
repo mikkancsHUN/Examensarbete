@@ -21,7 +21,7 @@ export default {
 .products__minimal {
     height: 33.3%;
     width: 100%;
-    background: rgb(99, 99, 157);
+    border: 1px solid #ffffff;
     display: flex;
     gap: 1rem;
 }

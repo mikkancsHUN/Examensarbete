@@ -14,6 +14,6 @@ export default {
 .products__main {
     height: 33.3%;
     width: 100%;
-    background: rgb(99, 99, 99);
+    border: 1px solid #ffffff;
 }
 </style>

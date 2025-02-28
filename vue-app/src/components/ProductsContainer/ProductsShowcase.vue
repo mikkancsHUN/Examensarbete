@@ -14,6 +14,6 @@ export default {
 .products__showcase {
     height: 100%;
     width: 20%;
-    background: rgb(178, 227, 225);
+    border: 1px solid #ffffff;
 }
 </style>

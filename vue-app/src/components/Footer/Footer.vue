@@ -17,7 +17,7 @@ export default {
 .footer {
     width: 100%;
     padding: 20px;
-    background-color: #7bffbd;
+    border: 1px solid #ccc;
     height: 10vh;
 }
 </style>

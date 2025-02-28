@@ -14,6 +14,6 @@ export default {
 .products__special {
     height: 33.3%;
     width: 100%;
-    background: rgb(99, 154, 157);
+    border: 1px solid #ccc;
 }
 </style>

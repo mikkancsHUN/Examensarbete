@@ -21,7 +21,7 @@ export default {
 .main__container {
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 70vh;
     width: 100%;
 }
 </style>

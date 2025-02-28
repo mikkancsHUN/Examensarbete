@@ -17,7 +17,7 @@ export default {
     width: 20%;
     min-width: 300px;
     padding: 20px;
-    background-color: #ff7b7b;
+    border: 1px solid #ccc;
     height: 100%;
 }
 

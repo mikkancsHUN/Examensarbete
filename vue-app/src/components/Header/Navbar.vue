@@ -23,6 +23,7 @@ export default {
         align-items: center;
         padding: 20px;
         width: 100%;
+        z-index: 99;
     }
 
     .header__navbar__list {
@@ -37,7 +38,7 @@ export default {
     .header__navbar-list-item {
         margin: 0 10px;
         cursor: pointer;
-        color: rgb(0, 0, 0);
+        color: rgba(255, 255, 255, 0.696);
     }
     .header__navbar-list-item:hover {
         color: var(--clr-hover);

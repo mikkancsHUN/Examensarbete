@@ -8,14 +8,32 @@
 }
 
 :root {
-  --clr-primary: #f9f9f9;
-  --clr-secondary: #1a1a1a;
-  --clr-icon: #6c6c6c;
-  --clr-tertiary: #646cff;
-  --clr-quaternary: #535bf2;
-  --clr-hover: #eea3dd;
+--clr-background:  linear-gradient(135deg, #07000d 0%, #1f033a 100%);
+--clr-heading: #ffffff8c;
+--clr-heading-hover: #b99cec;
+--clr-primary: #f9f9f9;
+--clr-secondary: #1a1a1a;
+--clr-icon: #bebebe;
+--clr-hover: #b99cec;
+--clr-main-theme: #ac8db8;
 
-  --text-primary: "Poppins", sans-serif
+--text-primary: "Poppins", sans-serif
+}
+
+section, header, aside, footer, main, article {
+  z-index: 1;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8em;
+  transform: scale(1, 0.7);
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.2s;
+  text-decoration: none;
+  color: var(--clr-heading);
 }
 
 button {

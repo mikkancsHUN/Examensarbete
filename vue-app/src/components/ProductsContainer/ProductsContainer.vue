@@ -27,6 +27,6 @@ export default {
     height: 100%;
     width: 80%;
     padding: 3rem 1rem;
-    background: rgb(143, 143, 251);
+    border: 1px solid #ffffff;
 }
 </style>
