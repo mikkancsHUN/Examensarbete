@@ -1,4 +1,5 @@
 <template>
+  <section class="carousel__section wrapper">
   <section class="carousel">
     <div class="carousel__container">
       <div
@@ -14,6 +15,7 @@
     <button @click="prevSlide" class="carousel__button prev">‹</button>
     <button @click="nextSlide" class="carousel__button next">›</button>
   </section>
+  </section>
 </template>
 
 <script>
@@ -23,7 +25,7 @@ export default {
     return {
       images: [
         'src/assets/products-imgs/SaintsFlowWallpaper.png',
-        'src/assets/products-imgs/5wwvfjozycc91.webp',
+        'src/assets/products-imgs/5wwvfjozycc91.jpg',
         'src/assets/products-imgs/6470745613_3660e26c19_b.jpg'
       ],
       currentIndex: 0,
@@ -55,32 +57,42 @@ export default {
 </script>
 
 <style>
+
+.carousel__section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
 .carousel {
   position: relative;
   width: 800px;
   height: 300px;
-  overflow: hidden;  /* Csak a látható képet engedi megjeleníteni */
+  overflow: hidden;
   margin: 20px auto;
   border-radius: 10px;
-  box-shadow: 0 1px 10px rgba(255, 255, 255, 0.1);
-  background-color: #000000; /* Kezdő háttérszín */
-  transition: background-color 1s ease; /* Sötétedés animáció */
+  background-color: #000000;
+  transition: background-color 1s ease;
 }
 
 .carousel__container {
-  display: flex; /* A képeket egymás mellé rendezzük */
-  animation: slideAnimation 30s infinite; /* Animáció hozzáadása */
+  display: flex;
+  animation: slideAnimation 30s infinite;
 }
 
 .carousel__slide {
-  min-width: 100%; /* Minden kép 100%-os szélességgel rendelkezik */
+  min-width: 100%;
   height: 100%;
 }
 
 .carousel__slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Képek teljes méretben jelennek meg */
+  object-fit: contain;
 }
 
 .carousel__button {
@@ -110,16 +122,18 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1, 0.7);
-  font-weight: 500;
-  letter-spacing: 3px;
-  transition: 0.2s;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: white;
-  transition: opacity 1s ease;
   z-index: 10;
   pointer-events: none;
-  animation: textAnimation 30s infinite; /* Szöveg animáció */
+  animation: textAnimation 30s infinite;
+
+  font-family: 'Poppins', sans-serif;
+  transform: translate(-50%, -50%) scale(1, 0.7);
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: 0.2s;
+  text-decoration: none;
+  color: var(--clr-main-heading);
 }
 
 .carousel__text::after {
@@ -130,12 +144,17 @@ export default {
     width: 100%;
     height: 1px;
     background: white;
-    box-shadow: 0px 0px 20px rgb(208, 164, 255);
     transform: scale(0, 1);
-    animation: textAfterAnimation 30s infinite; /* Szöveg animáció */
+    animation: textAfterAnimation 30s infinite;
 }
 
-/* Keyframes animáció módosítása */
+@media screen and (max-width: 745px) {
+  .carousel__section {
+    display: none;
+  }
+}
+
+
 @keyframes slideAnimation {
   0% {
     transform: translateX(0);
@@ -167,15 +186,15 @@ export default {
   }
   80% {
     transform: translateX(-200%);
-    opacity: 1; /* Kezd sötétedni */
+    opacity: 1;
   }
   90% {
     transform: translateX(-200%);
-    opacity: 0; /* Kezd sötétedni */
+    opacity: 0;
   }
   100% {
-    transform: translateX(-200%); /* Visszatérés az első képre */
-    opacity: 0; /* Teljesen elsötétül */
+    transform: translateX(-200%);
+    opacity: 0;
   }
 }
 
@@ -185,20 +204,21 @@ export default {
   }
   80% {
     opacity: 0;
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
   87% {
     opacity: 1;
-    text-shadow: 0px 0px 20px rgb(208, 164, 255);
+    text-shadow: 0px 0px 0px black;
   }
   93% {
     opacity: 1;
-    font-size: 3rem;
-    text-shadow: 0px 0px 200px rgb(208, 164, 255);
+    font-size: 2.7rem;
+    text-shadow: 0px 0px 20px var(--clr-heading-hover);
   }
   100% {
     opacity: 1;
-    font-size: 3rem;
+    font-size: 2.7rem;
+    text-shadow: 0px 0px 20px var(--clr-heading-hover);
   }
 }
 
@@ -208,6 +228,7 @@ export default {
   }
   85% {
     transform: scale(0, 1);
+    box-shadow: 0px 0px 0px black;
   }
   90% {
     transform: scale(1, 1);

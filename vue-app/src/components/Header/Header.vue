@@ -29,5 +29,13 @@ components: {
         justify-content: center;
         align-items: center;
         z-index: 1;
+        position: relative;
+        /*overflow: hidden;*/
+}
+
+@media screen and (max-width: 1395px) {
+  .header {
+      padding: 0px 1rem;
     }
+}
 </style>

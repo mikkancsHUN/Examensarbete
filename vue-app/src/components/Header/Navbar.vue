@@ -1,5 +1,5 @@
 <template>
-    <nav class="header__navbar">
+    <nav class="header__navbar wrapper">
         <ul class="header__navbar__list">
             <li class="header__navbar-list-item">Home</li>
             <li class="header__navbar-list-item">Categories</li>
@@ -21,7 +21,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 20px;
+        padding: 20px 0;
         width: 100%;
         z-index: 99;
     }
@@ -53,5 +53,11 @@ export default {
     }
     .header__navbar-list-item:hover::after {
         width: 100%;
+    }
+
+    @media screen and (max-width: 1191px) {
+        .header__navbar {
+            display: none;
+        }
     }
 </style>

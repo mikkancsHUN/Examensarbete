@@ -1,5 +1,5 @@
 <template>
-    <div class="background-wrapper">
+    <div class="background-animation">
       <span class="saint" v-for="n in 10" :key="n"></span>
     </div>
   </template>
@@ -11,7 +11,7 @@
   </script>
   
   <style scoped>
-.background-wrapper {
+.background-animation {
     position: fixed;
     top: 0;
     left: 0;

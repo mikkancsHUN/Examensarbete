@@ -1,27 +1,32 @@
 <template>
-    <main class="main__container">
-        <Sidebar />
+    <main class="main">
+        <Carousel />
         <ProductsContainer />
+        <About />
     </main>
 </template>
 
 <script>
-import Sidebar from '../ProductsContainer/Sidebar.vue';
-import ProductsContainer from '../ProductsContainer/ProductsContainer.vue';
+import Carousel from './../Carousel/Carousel.vue'
+import ProductsContainer from './ProductsContainer/ProductsContainer.vue'
+import About from './About.vue';
 export default {
     name: 'Main',
-    components: { 
-        Sidebar,
-        ProductsContainer 
+    components: {
+        Carousel,
+        ProductsContainer,
+        About
     },
 }
 </script>
 
 <style>
-.main__container {
-    display: flex;
-    justify-content: center;
-    height: 70vh;
+.main {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    position: relative;
 }
 </style>
