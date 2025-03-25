@@ -2,7 +2,7 @@
 
 ## Frontend
 
-Första steg för att kunna testa appen efter githubrepot klonat ner ska man stå i "vue-app" filen och installera npm packages i terminalen. Efter det man kör "npm run dev" precis som man gör i React och sen man klickar på länken man fått.
+Första steget för att kunna testa appen efter githubrepot klonat ner ska man stå i "vue-app" filen och installera npm packages i terminalen. Efter det man kör "npm run dev" precis som man gör i React och sen man klickar på länken man fått.
 
 På webbsidan man ska kunna:
 - sortera kategorin för kläderna (till ex.: t-shirt, hoodie, caps etc...). man kan ha flera kategorin väljat samtidigt.
