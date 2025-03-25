@@ -22,7 +22,7 @@ export default {
     width: 100%;
     padding-left: 2rem;
     padding-right: 2rem;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
 }
 .products__main h2 {
     font-size: 1.5rem;
@@ -47,4 +47,5 @@ export default {
         padding: 1rem;
     }
 }
+
 </style>

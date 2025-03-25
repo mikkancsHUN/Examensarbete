@@ -12,8 +12,8 @@
     </div>
     <div class="carousel__text">Planet Saints</div>
 
-    <button @click="prevSlide" class="carousel__button prev">‹</button>
-    <button @click="nextSlide" class="carousel__button next">›</button>
+   <!--  <button @click="prevSlide" class="carousel__button prev">‹</button>
+    <button @click="nextSlide" class="carousel__button next">›</button> -->
   </section>
   </section>
 </template>
@@ -149,8 +149,35 @@ export default {
 }
 
 @media screen and (max-width: 745px) {
-  .carousel__section {
-    display: none;
+  .carousel__text {
+    white-space: nowrap;
+  }
+  .carousel {
+    height: 300px;
+    transform: scale(0.9);
+    margin: -3rem 0;
+  }
+  .carousel__slide {
+    height: 300px;
+  }
+  .carousel__slide img {
+    object-fit: cover;
+  }
+}
+@media screen and (max-width: 575px) {
+  .carousel__text {
+    white-space: nowrap;
+  }
+  .carousel {
+    height: 200px;
+    transform: scale(0.9);
+    margin: -3rem 0;
+  }
+  .carousel__slide {
+    height: 200px;
+  }
+  .carousel__slide img {
+    object-fit: cover;
   }
 }
 
@@ -204,7 +231,7 @@ export default {
   }
   80% {
     opacity: 0;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
   87% {
     opacity: 1;
@@ -212,12 +239,12 @@ export default {
   }
   93% {
     opacity: 1;
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     text-shadow: 0px 0px 20px var(--clr-heading-hover);
   }
   100% {
     opacity: 1;
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     text-shadow: 0px 0px 20px var(--clr-heading-hover);
   }
 }

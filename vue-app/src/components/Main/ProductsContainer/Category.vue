@@ -6,9 +6,9 @@
           <input type="checkbox" id="tshirt-checkbox" value="t-shirt" class="filter-checkbox" />
           <span>T-shirt</span>
         </label>
-        <label for="sweater-checkbox" class="filter-btn">
-          <input type="checkbox" id="sweater-checkbox" value="sweater" class="filter-checkbox" />
-          <span>Sweater</span>
+        <label for="hoodie-checkbox" class="filter-btn">
+          <input type="checkbox" id="hoodie-checkbox" value="hoodie" class="filter-checkbox" />
+          <span>Hoodie</span>
         </label>
         <label for="tank-top-checkbox" class="filter-btn">
           <input type="checkbox" id="tank-top-checkbox" value="tank-top" class="filter-checkbox" />
@@ -65,7 +65,6 @@ checkboxes.forEach((checkbox) => {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
-    
   }
   
   .home__view .filter-btn {
@@ -82,14 +81,23 @@ checkboxes.forEach((checkbox) => {
     align-items: center;
     gap: 0.5em;
     transition: 0s;
-    /*border-left: none;
-    border-right: none;*/
+
+
+    /**TESZT *
+    box-shadow: 0px 0px 10px 1px rgba(74, 68, 85, 0.188);
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    /**TESZT */
   }
-  
   .home__view .filter-btn:hover {
     color: rgb(255, 255, 255);
     text-shadow: 0px 5px 10px rgb(19, 13, 19);
     border-color: var(--clr-hover);
+
+   /**TESZT */
+    box-shadow: 0px 0px 10px 1px var(--clr-hover);
+    /**TESZT */
   }
   .home__view .filter-btn:focus {
     border-color: 2px solid var(--clr-hover);

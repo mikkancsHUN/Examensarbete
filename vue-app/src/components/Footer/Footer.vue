@@ -24,23 +24,20 @@
 
 <script>
 export default {
-    name: 'Footer',
-    components: {
-        
-    }
+    name: 'Footer'
 }
 </script>
 
 <style>
 .footer {
     width: 100%;
-    height: 400px;
+    height: 35vh;
     padding: 20px;
     z-index: 1;
     position: relative;
     background-color: black;
-    /*box-shadow: inset 0px -10px 10px 0px rgba(73, 50, 112, 0.38);*/
 }
+
 .footer__info {
     width: 100%;
     height: 100%;
@@ -95,13 +92,20 @@ export default {
     font-weight: 200;
 }
 
+
 @media screen and (max-width: 1100px) {
+    .footer {
+        padding: 2rem;
+    }  
     .footer__info {
-    justify-content: space-between;
-    flex-direction: column-reverse;
+        justify-content: space-between;
+        flex-direction: column-reverse;
+    }
 }
-.footer__info {
-    padding-top: 4rem;
-}
+
+@media screen and (max-height: 900px) {
+    .footer {
+        height: 400px;
+    }
 }
 </style>

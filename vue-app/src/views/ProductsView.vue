@@ -12,6 +12,7 @@ import Header from '../components/Header/Header.vue'
 import SearchInput from '../components/Header/SearchInput.vue'
 import Category from '../components/Main/ProductsContainer/Category.vue'
 import ProductsViewGrid from '../components/ProductsView/ProductsViewGrid.vue';
+
 export default {
     name: 'ProductsView',
     components: {
@@ -62,6 +63,7 @@ checkboxes.forEach((checkbox) => {
     margin-top: 2em;
     transform: scale(1, 0.9);
 }
+
 .products__view .filter-btn {
     background-color: black;
     padding: 18px 20px;

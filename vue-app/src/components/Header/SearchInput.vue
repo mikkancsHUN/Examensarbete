@@ -9,10 +9,10 @@
             <a href="">
                 <span class="material-symbols-outlined">person</span>
             </a>
-            <a href="">
+            <a href="/favorites">
                 <span class="material-symbols-outlined">favorite</span>
             </a>
-            <a href="/cartview">
+            <a href="/cart">
                 <span class="material-symbols-outlined">shopping_bag</span>
             </a>
         </section>
@@ -22,12 +22,11 @@
 <script>
 
 export default {
-
+    name: 'SearchInput'
 }
 </script>
 
 <style>
-
     .main__heading {
         cursor: pointer;
         font-family: 'Poppins', sans-serif;
@@ -67,6 +66,7 @@ export default {
         padding: 20px 0;
         width: 100%;
     }
+
     .header__search-input form {
         position: relative;
         display: flex;
@@ -91,21 +91,30 @@ export default {
         box-shadow: 0px 0px 50px 1px var(--clr-heading-hover);
         background: rgba(30, 18, 41, 0.75);
     }
+
     .header__search-input-icons {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 10px;
     }
+    
     .search-icon {
         position: absolute;
         right: 10px;
         color: var(--clr-icon);
         cursor: pointer;
+        user-select: none;
+        padding: 8px;
     }
     .search-icon:hover {
         color: var(--clr-hover);
         box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    .search-icon:active {
+        transform: scale(0.9);
+        box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.8);
+        transition: 0.1s;
     }
 
     @media screen and (max-width: 1191px) {
@@ -113,7 +122,6 @@ export default {
         flex-direction: column;
         align-items: center;
         gap: 15px;
-        margin: -1rem 0;
     }
 
     .header__top {

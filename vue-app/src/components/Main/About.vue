@@ -12,13 +12,13 @@
 
 <script>
 export default {
-
+  name: 'About'
 }
 </script>
 
 <style>
   .about {
-    height: 600px;
+    height: 65vh;
     width: 100%;
     background: url('@/assets/wallpaperflare.com_wallpaper9.jpg') no-repeat center center;
     background-size: contain;
@@ -64,13 +64,18 @@ export default {
     color: var(--clr-primary);
   }
 
+  @media screen and (max-width: 1470px) {
+    .about {
+   height: 600px;
+  }
+}
+
   @media screen and (max-width: 1451px) {
     .about__content {
       justify-content: center;
       gap: 2rem;
     }
   }
-
 
   @media screen and (max-width: 1100px) {
     .about {
@@ -92,7 +97,10 @@ export default {
   @media screen and (max-width: 600px) {
     .about {
       height: fit-content;
+    }
 
+    .about__content {
+      gap: 1rem;
     }
 
     .about h2 {

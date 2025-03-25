@@ -1,83 +1,90 @@
 <template>
     <section class="products__grid">
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
-        <ProductsViewGridItem />
+      <ProductsViewGridItem 
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
+      />
     </section>
-</template>
-
-<script>
-import ProductsViewGridItem from './ProductsViewGridItem.vue';
-export default {
+  </template>
+  
+  <script>
+  import { ref, onMounted } from "vue";
+  import ProductsViewGridItem from "./ProductsViewGridItem.vue";
+  
+  export default {
     name: 'ProductsViewGrid',
     components: {
-        ProductsViewGridItem
+      ProductsViewGridItem
+    },
+    setup() {
+      const products = ref([]);
+  
+      const fetchProducts = async () => {
+        try {
+          const response = await fetch(
+            "https://5ldfpe26m0.execute-api.eu-north-1.amazonaws.com/products"
+          );
+  
+          if (!response.ok) {
+            throw new Error(`Hiba: ${response.status} - ${response.statusText}`);
+          }
+  
+          const data = await response.json();
+          if (data.success && Array.isArray(data.data)) {
+            products.value = data.data;
+          } else {
+            console.error("API válasz formátum hiba:", data);
+          }
+        } catch (error) {
+          console.error("Hiba történt az API hívás közben:", error);
+        }
+      };
+  
+      onMounted(() => {
+        fetchProducts();
+      });
+  
+      return { products };
     }
-}
-</script>
+  };
+  </script>
 
 <style>
 .products__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    width: 100%;
-    padding: 1rem 0  2rem 0;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
     height: fit-content;
+    width: fit-content;
+    padding-top: 4rem;
 }
-
 .products__view .products__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
+    padding-bottom: 4rem;
 }
 
+@media screen and (max-width: 1450px) {
+  .products__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
-
-@media screen and (max-width: 980px) {
-    .products__grid {
+@media screen and (max-width: 1140px) {
+  .products__grid {
         grid-template-columns: repeat(3, 1fr);
         width: fit-content;
         margin: 0 auto;
     }
 }
+@media screen and (max-width: 980px) {
+  .products__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 
-@media screen and (max-width: 720px) {
-    .products__grid {
+@media screen and (max-width: 860px) {
+  .products__grid {
         grid-template-columns: 1fr 1fr;
     }
 }
-
-@media screen and (max-width: 376px) {
-    .products__grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 </style>
-
-   

@@ -20,6 +20,12 @@ export default {
     min-width: 360px;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+
+    /**TESZT 
+    background: rgba(8, 4, 28, 0.258);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(50px)
+    /**TESZT */
 }
 
 @media screen and (max-width: 1390px) {
@@ -36,3 +42,5 @@ export default {
 }
 
 </style>
+
+

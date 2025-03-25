@@ -1,32 +1,70 @@
 <template>
   <article class="products__grid-item">
-    <img src="@/assets/products-imgs/Saints-Row-Video-Game-3D-All-Over-Print-Zip-Hoodie-Pullover-Hoodie-40d9f5-1.png" alt="">
-    <div>
-      <h3 class="products__item-title">Saints Hoodie</h3>
-      <span class="products__item-description">sweater, men's, women's</span>
-      <span class="products__item-price">$69</span>
+    <img :src="product.imageUrl || defaultImage" alt="Product Image">
+    <div class="products__item-wrapper">
+      <div class="products__item-info">
+        <h3 class="products__item-title">{{ product.name }}</h3>
+        <div>
+          <span class="products__item-category">{{ product.gender || "No Gender" }}</span>
+          <span class="products__item-category">{{ product.category || "No Category" }}</span>
+        </div>
+        <span class="products__item-price">${{ product.price }}</span>
+        <span 
+          class="products__item-like material-symbols-outlined"
+          :class="{ liked: isFavorite }"
+          @click="toggleFavorite(product)"
+        >
+          favorite
+        </span>
+      </div>
+      <button @click="addToCart(product)" class="animated-btn">Purchase</button>
     </div>
   </article>
 </template>
 
 <script>
+import { computed } from "vue";
+import { favorites, toggleFavorite } from "@/stores/favoritesStore.js";
+import { addToCart } from "@/stores/cartStore.js";
+
 export default {
-    name: 'ProductsGridItem',
-}
+  name: 'ProductsGridItem',
+  props: {
+    product: {
+      type: Object,
+      required: true
+    }
+  },
+  data() {
+    return {
+      defaultImage: "https://via.placeholder.com/150"
+    };
+  },
+  computed: {
+    isFavorite() {
+      return favorites.value.some(item => item.id === this.product.id);
+    }
+  },
+  methods: {
+    addToCart,
+    toggleFavorite
+  }
+};
 </script>
 
 <style>
 .home__view .products__grid-item {
-    background: black;
+    background: rgb(0, 0, 0);
     border-radius: 0.25rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    height: 327px;
-    width: 203px;
+    height: 400px;
+    max-width: 232px;
+    width: 232px;
     display: grid;
     grid-template-rows: auto 1fr;
 }
 
-.home__view .products__grid-item div {
+.home__view .products__grid-item-info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -46,61 +84,33 @@ export default {
   color:rgba(255, 255, 255, 0.75);
   font-family: 'Syne', sans-serif;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
-.home__view .products__item-description {
+.home__view .products__item-category {
   color:rgba(255, 255, 255, 0.75);
   font-family: 'Syne', sans-serif;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .home__view .products__item-price {
     color:rgba(255, 255, 255, 0.75);
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
-.products__view .products__grid-item {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    width: 250px;
-    height: 375px;
-}
-.products__view .products__grid-item:hover {
-    box-shadow: 0px 0px 20px 5px rgba(64, 33, 69, 0.5);
-}
-
-.products__view .products__item-description {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-
-}
-.products__view .products__item-title {
-    font-size: 18px;
-}
-.products__view .products__item-price {
-    font-size: 20px;
-}
-
-@media screen and (max-width: 483px) {
+@media screen and (max-width: 442px) {
   .home__view .products__grid-item {
-      height: 250px;
-      width: 150px;
+      height: 360px;
+      width: 170px;
     }
 }
 
-@media screen and (max-width: 376px) {
-  .home__view .products__grid-item  {
-      height: 327px;
-      width: 203px;
+@media screen and (max-width: 400px) {
+  .home__view .products__grid-item {
+      height: 360px;
+      width: 155px;
     }
 }
 </style>

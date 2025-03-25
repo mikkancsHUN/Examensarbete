@@ -10,6 +10,7 @@
 import Carousel from './../Carousel/Carousel.vue'
 import ProductsContainer from './ProductsContainer/ProductsContainer.vue'
 import About from './About.vue';
+
 export default {
     name: 'Main',
     components: {

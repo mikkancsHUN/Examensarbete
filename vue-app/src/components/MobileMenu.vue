@@ -2,9 +2,9 @@
   <nav class="mobile-menu" :class="{ open: isOpen }">
     <ul class="mobile-menu__list">
       <li class="mobile-menu__list-item"><a href="/">Home</a></li>
-      <li class="mobile-menu__list-item"><a href="#">About</a></li>
-      <li class="mobile-menu__list-item"><a href="#">Services</a></li>
-      <li class="mobile-menu__list-item"><a href="#">Contact</a></li>
+      <li class="mobile-menu__list-item"><a href="/products">Products</a></li>
+      <li class="mobile-menu__list-item"><a href="/cart">Cart</a></li>
+      <li class="mobile-menu__list-item"><a href="/favorites">Favorites</a></li>
      </ul>
    <h1>Planet Saints</h1>
   </nav>
@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'MobileMenu',
   props: {
     isOpen: Boolean
   },
@@ -44,9 +45,9 @@ export default {
 
 <style>
 .mobile-menu {
-  background-color: rgba(0, 0, 0, 0.99);
+  background-color: rgb(52 47 71 / 25%); /* Üvegszerű hatás átlátszó háttér */
   height: 100%;
-  width: 100%;
+  width: 30rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -56,16 +57,18 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+  backdrop-filter: blur(50px); /* Háttér homályosítása, üveghatás */
+  -webkit-backdrop-filter: blur(50px); /* Webkit kompatibilitás */
 }
+
 .mobile-menu h1 {
-    font-family: 'Poppins', sans-serif;
     font-size: 1.6em;
     transform: scale(1, 0.7) translateY(-3rem);
     font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;
     text-shadow: 0px 0px 20px var(--clr-heading-hover);
-    text-decoration: none;
     color: var(--clr-main-heading);
     user-select: none;
 }
@@ -87,19 +90,9 @@ export default {
 
 .mobile-menu__list-item {
   margin: 1rem 0;
-  cursor: pointer;
-  font-size: 24px;
-  font-weight: 700;
   line-height: 31.06px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition: 0.1s;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  font-size: 2em;
-  transform: scale(1, 0.76);
+  font-size: 1.8em;
   font-weight: 500;
-  letter-spacing: 1px;
   text-transform: uppercase;
   transition: 0.1s;
   text-align: center;
@@ -107,18 +100,24 @@ export default {
 
 .mobile-menu__list-item:hover {
   text-shadow: 0px 0px 10px var(--clr-hover);
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   transition: 0.2s;
 }
 
 .mobile-menu__list-item:active {
   text-shadow: 0px 0px 10px var(--clr-hover);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .mobile-menu__list-item a {
   text-decoration: none;
   color: var(--clr-secondary);
+}
+
+@media screen and (max-width: 540px) {
+  .mobile-menu {
+    width: 100%;
+  }
 }
 
 </style>
