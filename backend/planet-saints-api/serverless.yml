@@ -1,0 +1,42 @@
+org: ${file(./local.yml):organisation}
+app: planet-saints
+service: planet-saints-api
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: eu-north-1
+  deploymentMethod: direct
+  iam:
+    role: ${file(./local.yml):iamRole}
+  environment:
+    PRODUCTS_TABLE: planet-saints-products
+
+resources:
+  Resources:
+    ProductsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.PRODUCTS_TABLE}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+
+functions:
+  GetProducts:
+    handler: functions/GetProducts.handler
+    events:
+      - httpApi:
+          path: /products
+          method: get
+          
+  GetSpecificProduct:
+    handler: functions/GetSpecificProduct.handler
+    events:
+      - httpApi:
+          path: /products/{id}
+          method: get
