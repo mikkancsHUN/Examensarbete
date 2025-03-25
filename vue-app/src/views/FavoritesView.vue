@@ -7,7 +7,7 @@
       <p>No favorite products yet.</p>
     </div>
 
-    <div v-else class="products__grid">
+    <div v-else class="products__grid wrapper" style="margin: auto;">
       <article 
         v-for="product in favorites" 
         :key="product.id"
@@ -21,10 +21,9 @@
             <span class="products__item-category">{{ product.category || "No Category" }}</span>
           </div>
           <span class="products__item-price">${{ product.price }}</span>
-
-          <!-- Like gomb a törléshez -->
           <span 
-            class="products__item-like material-symbols-outlined liked"
+            class="products__item-like material-symbols-outlined"
+            :class="{ liked: isFavorite(product) }"
             @click="toggleFavorite(product)"
           >
             favorite
@@ -36,7 +35,7 @@
 </template>
 
 <script>
-import { favorites, toggleFavorite } from "@/stores/favoritesStore.js";
+import { favorites } from "@/stores/favoritesStore.js";
 import HeaderTop from '@/components/Header/HeaderTop.vue';
 
 export default {
@@ -55,24 +54,65 @@ export default {
     }
   },
   methods: {
-    toggleFavorite
+    toggleFavorite(product) {
+      if (this.isFavorite(product)) {
+        const index = favorites.value.findIndex(item => item.id === product.id);
+        if (index !== -1) {
+          favorites.value.splice(index, 1);
+        }
+      } else {
+        favorites.value.push(product);
+      }
+    },
+    isFavorite(product) {
+      return favorites.value.some(item => item.id === product.id);
+    }
   }
 };
 </script>
 
 
 <style>
-.products__item-like,
-.products__grid-item .material-symbols-outlined {
+ .products__grid-item:hover .products__item-like {
+    transform: translateY(0);
+  }
+
+  .products__item-like {
+    position: absolute;
+    background: black;
+    border-radius:0 0 5px 5px;
+    width: 2.2rem;
+    height: 3rem;
+    top: 0px;
+    right: 10px;
+    transform: translateY(-100%);
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.material-symbols-outlined {
+  color: var(--clr-icon);
   font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  transition: 0.1s;
+}
+
+.products__grid-item .material-symbols-outlined:hover {
+  font-size: 1.8rem;
 }
 
 .liked {
   color: var(--clr-hover);
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
 }
 
 .favorites__view {
@@ -90,10 +130,11 @@ export default {
 }
 
 .favorites__view .products__grid-item {
-  height: 440px;
+  height: 420px;
 }
 .favorites__view .products__item-info {
-  padding-bottom: 1rem;
+  height: 100%;
+  padding: 1rem;
 }
 
 .empty-favorites {

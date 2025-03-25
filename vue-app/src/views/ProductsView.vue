@@ -42,9 +42,13 @@ checkboxes.forEach((checkbox) => {
 <style>
 .products__view {
     background-color: rgba(0, 0, 0, 0.5);    
-    padding: 0 1rem;
-    z-index: 1;
-    position: relative;
+    display: flex;
+  flex-direction: column;
+  min-height: 65vh;
+  padding: 0 1rem 2rem 1rem;
+  margin: auto;
+  z-index: 1;
+  position: relative;
 }
 
 .products__view-heading {

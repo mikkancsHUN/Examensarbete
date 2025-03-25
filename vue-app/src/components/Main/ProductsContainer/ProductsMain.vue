@@ -8,6 +8,7 @@
 
 <script>
 import ProductsGrid from './ProductsGrid.vue';
+
 export default {
     name: 'ProductsMain',
     components: {

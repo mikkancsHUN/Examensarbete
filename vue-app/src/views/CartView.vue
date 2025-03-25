@@ -46,7 +46,6 @@ export default {
       return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(total);
     });
 
-    // Mennyiség frissítése
     const updateQuantity = (item, change) => {
       item.quantity += change;
       if (item.quantity <= 0) {
@@ -67,7 +66,6 @@ export default {
   }
 };
 </script>
-
 
 <style>
 .cart__view {
@@ -143,21 +141,8 @@ export default {
   font-size: 1.2rem;
   color: #999;
 }
+
 .cart-total button {
   margin-right: 1rem;
 }
-/*.remove:hover {
-  color: rgb(254, 134, 134);
-  text-shadow: 0px 5px 10px rgb(218, 241, 203);
-  border: 2px solid rgb(159, 62, 62);
-  transition: 1s;
-  box-shadow: 0px 0px 30px 1px rgba(255, 63, 63, 0.534);
-}
-.purchase:hover {
-  color: rgb(179, 252, 179);
-  text-shadow: 0px 5px 10px rgb(218, 241, 203);
-  border: 2px solid rgb(145, 189, 127);
-  transition: 1s;
-  box-shadow: 0px 0px 30px 1px rgba(63, 255, 63, 0.534);
-}*/
 </style>

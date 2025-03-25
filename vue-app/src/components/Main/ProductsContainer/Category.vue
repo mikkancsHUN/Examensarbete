@@ -1,39 +1,44 @@
 <template>
-    <section class="category">
-      <h2>Category</h2>
-      <div id="filter-div" class="filter">
-        <label for="tshirt-checkbox" class="filter-btn">
-          <input type="checkbox" id="tshirt-checkbox" value="t-shirt" class="filter-checkbox" />
-          <span>T-shirt</span>
-        </label>
-        <label for="hoodie-checkbox" class="filter-btn">
-          <input type="checkbox" id="hoodie-checkbox" value="hoodie" class="filter-checkbox" />
-          <span>Hoodie</span>
-        </label>
-        <label for="tank-top-checkbox" class="filter-btn">
-          <input type="checkbox" id="tank-top-checkbox" value="tank-top" class="filter-checkbox" />
-          <span>Tank-top</span>
-        </label>
-        <label for="pants-checkbox" class="filter-btn">
-          <input type="checkbox" id="pants-checkbox" value="pants" class="filter-checkbox" />
-          <span>Pants</span>
-        </label>
-        <label for="shorts-checkbox" class="filter-btn">
-          <input type="checkbox" id="shorts-checkbox" value="shorts" class="filter-checkbox" />
-          <span>Shorts</span>
-        </label>
-        <label for="caps-checkbox" class="filter-btn">
-          <input type="checkbox" id="caps-checkbox" value="caps" class="filter-checkbox" />
-          <span>Caps</span>
-        </label>
-      </div>
-    </section>
-  </template>
-  
-  <script>
-  export default {
-    name: 'Category',
-    mounted() {
+  <section class="category">
+    <h2>Category</h2>
+    <div id="filter-div" class="filter">
+      <label v-for="category in categories" :key="category.value" class="filter-btn">
+        <input 
+          type="checkbox" 
+          :value="category.value" 
+          class="filter-checkbox" 
+          :checked="selectedCategories.includes(category.value)"
+          @change="toggleCategory(category.value)"
+        />
+        <span>{{ category.label }}</span>
+      </label>
+    </div>
+  </section>
+</template>
+
+<script>
+import { computed } from "vue";
+import { selectedCategories, toggleCategory } from "@/stores/categoryStore.js";
+
+export default {
+  name: "Category",
+  setup() {
+    const categories = computed(() => [
+      { value: "t-shirt", label: "T-shirt" },
+      { value: "hoodie", label: "Hoodie" },
+      { value: "tank-top", label: "Tank-top" },
+      { value: "pants", label: "Pants" },
+      { value: "shorts", label: "Shorts" },
+      { value: "cap", label: "Caps" },
+    ]);
+
+    return {
+      categories,
+      selectedCategories,
+      toggleCategory,
+    };
+  },
+  mounted() {
         const checkboxes = document.querySelectorAll('.filter-checkbox');
 
 checkboxes.forEach((checkbox) => {
@@ -48,7 +53,8 @@ checkboxes.forEach((checkbox) => {
     });
   },
 };
-  </script>
+</script>
+
   
   <style>
   .category {
@@ -125,4 +131,3 @@ checkboxes.forEach((checkbox) => {
     border: 2px solid var(--clr-hover);
   }
   </style>
-  

@@ -45,7 +45,7 @@ export default {
 
 <style>
 .mobile-menu {
-  background-color: rgb(52 47 71 / 25%); /* Üvegszerű hatás átlátszó háttér */
+  background-color: rgb(52 47 71 / 25%);
   height: 100%;
   width: 30rem;
   position: fixed;
@@ -58,8 +58,8 @@ export default {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  backdrop-filter: blur(50px); /* Háttér homályosítása, üveghatás */
-  -webkit-backdrop-filter: blur(50px); /* Webkit kompatibilitás */
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
 }
 
 .mobile-menu h1 {

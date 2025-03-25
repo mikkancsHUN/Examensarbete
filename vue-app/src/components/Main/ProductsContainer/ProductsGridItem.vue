@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import { computed } from "vue";
 import { favorites, toggleFavorite } from "@/stores/favoritesStore.js";
 import { addToCart } from "@/stores/cartStore.js";
 
@@ -98,6 +97,18 @@ export default {
     color:rgba(255, 255, 255, 0.75);
     text-transform: uppercase;
     font-size: 1rem;
+}
+
+@media screen and (max-width: 1212px) {
+  .home__view .products__grid-item {
+    width: 226px;
+  }
+}
+
+@media screen and (max-width: 1191px) {
+  .home__view .products__grid-item {
+    width: 232px;
+  }
 }
 
 @media screen and (max-width: 442px) {

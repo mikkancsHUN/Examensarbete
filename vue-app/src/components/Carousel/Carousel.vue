@@ -11,9 +11,6 @@
       </div>
     </div>
     <div class="carousel__text">Planet Saints</div>
-
-   <!--  <button @click="prevSlide" class="carousel__button prev">‹</button>
-    <button @click="nextSlide" class="carousel__button next">›</button> -->
   </section>
   </section>
 </template>
@@ -57,7 +54,6 @@ export default {
 </script>
 
 <style>
-
 .carousel__section {
   display: flex;
   justify-content: center;
@@ -93,28 +89,6 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
-
-.carousel__button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.503);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-}
-.prev {
-  left: 0px;
-  border-radius: 0 5px 5px 0;
-}
-
-.next {
-  right: 0px;
-  border-radius: 5px 0 0 5px;
 }
 
 .carousel__text {

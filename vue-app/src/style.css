@@ -93,6 +93,7 @@ button {
   border-radius: 100px;
   padding: 5px;
   transition: 0.2s;
+  position: relative;
 }
 .material-symbols-outlined:hover {
   color: var(--clr-hover);

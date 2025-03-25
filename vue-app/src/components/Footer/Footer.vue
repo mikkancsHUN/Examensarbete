@@ -103,9 +103,9 @@ export default {
     }
 }
 
-@media screen and (max-height: 900px) {
+@media screen and (max-height: 950px) {
     .footer {
-        height: 400px;
+        height: 360px;
     }
 }
 </style>

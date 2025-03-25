@@ -8,6 +8,7 @@
 <script>
 import ProductsSpecial from './ProductsSpecial.vue'
 import ProductsMain from './ProductsMain.vue'
+
 export default {
     name: 'ProductsBox',
     components: {

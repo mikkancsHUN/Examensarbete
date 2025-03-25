@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import { computed } from "vue";
 import { favorites, toggleFavorite } from "@/stores/favoritesStore.js";
 import { addToCart } from "@/stores/cartStore.js";
 
@@ -114,40 +113,6 @@ export default {
       color:rgba(255, 255, 255, 0.75);
       font-size: 1.3rem;
   }
-
-  /* Top */
-  .products__grid-item:hover .products__item-like {
-    transform: translateY(0);
-  }
-
-  .products__item-like {
-    position: absolute;
-    background: black;
-    border-radius:0 0 5px 5px;
-    padding: 10px 5px;
-    top: 0px;
-    right: 10px;
-    transform: translateY(-100%);
-  }
-
-  /* Rigth */
-  /*.products__grid-item:hover .products__item-like {
-    transform: translateX(0);
-  }
-
-  .products__item-like {
-    position: absolute;
-    background: black;
-    border-radius: 5px 0 0 5px;
-    padding: 5px 10px;
-    top: 10px;
-    right: 0;
-    transform: translateX(100%);
-  }
-
-  .products__item-like:active {
-    transform: scale(1);
-  }*/
 
 @media screen and (max-width: 577px) {
     .products__grid-item {

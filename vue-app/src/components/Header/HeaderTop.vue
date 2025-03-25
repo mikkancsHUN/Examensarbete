@@ -1,9 +1,9 @@
 <template>
     <header class="header__top wrapper">
         <section class="header__top-social">
-            <a href="#"><img src="../../assets/icons/facebook.png" alt=""></a>
-            <a href="#"><img src="../../assets/icons/instagram.png" alt=""></a>
-            <a href="#"><img class="twitter" src="../../assets/icons/X_icon_2.svg.png" alt=""></a>
+            <a href="#"><img src="@/assets/icons/facebook.png" alt=""></a>
+            <a href="#"><img src="@/assets/icons/instagram.png" alt=""></a>
+            <a href="#"><img class="twitter" src="@/assets/icons/X_icon_2.svg.png" alt=""></a>
         </section>
         <section class="header__top-buttons">
             <button class="animated-btn">Login</button>
