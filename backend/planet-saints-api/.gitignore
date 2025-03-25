@@ -1,0 +1,15 @@
+# Node.js csomagok
+node_modules/
+
+# Serverless Framework build mappa
+.serverless/
+
+# Helyi konfigurációs fájlok
+.local.yml
+
+# MacOS és VS Code fájlok
+.DS_Store
+.vscode/
+
+# Egyéb nem kívánt fájlok
+package-lock.json
