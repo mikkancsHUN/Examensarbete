@@ -19,7 +19,7 @@ Som man ska inte kunna göra (än):
 
 ## Backend
 
-För att få upp produkterna på webbsidan ska man svänga till och stå i "planet-saints-api" filen. Först skapar du ett "local.yml" file och skriva in din organisation från serverless framework och din iamRole lambafuntionerna från aws:
+För att få upp produkterna på webbsidan ska man svänga till och stå i "planet-saints-api" filen. Först skapar du ett "local.yml" file och skriva in din organisation från serverless framework och din iamRole för lambafunktionerna från din aws:
 
 organisation: mittOrganisationNamn
 iamRole: arn:awsMittIamRole/lambdaDynamoDbRole
