@@ -7,15 +7,15 @@ Första steget för att kunna testa appen efter githubrepot klonat ner ska man s
 På webbsidan man ska kunna:
 - sortera kategorin för kläderna (till ex.: t-shirt, hoodie, caps etc...). man kan ha flera kategorin väljat samtidigt.
 - öppna mobil/hamburgermenyn oavsett om det är på mobil eller desktop storlek och navigera till alla möjliga sidor.
-- gilla specifika produkter och om man klicker högre upp på "Header" delen på hjärta ikonen eller på mobilmenyn hittar man länk till favoritsidan och där ser man alla sina favorit produkter. man kan ogilla produkter på alla sidor.
+- gilla specifika produkter och om man klicker högre upp på "Header" delen på hjärta ikonen eller på mobilmenyn hittar man länk till favoritsidan och där ser man alla sina favorit produkter. Man kan ogilla produkter på alla sidor.
 - la produkter till varukorgen när man klickar på produktens knapp "Purchase".
-- se enskilda pris för varje produkt, se totala värden för en specific produkt om man köper mer än ett stycken, se totala värden för alla produkter med dess kvantitet som ligger i varukorgen. och man kan också ta borta produkter därifrån.
+- se enskilda pris för varje produkt, se totala värden för en specific produkt om man köper mer än ett stycken, se totala värden för alla produkter med dess kvantitet som ligger i varukorgen. Man kan också ta borta produkter därifrån.
 (När man klickar på "finalize puchasing" då kommer ta bortas alla produkter från varukorgen så det finns ingen riktig betalning... eller nåt fint simulation :( )
 
 Som man ska inte kunna göra (än):
-- registrera sig och logga in. det finns ingenting och göra med profiler och användare
-- sökfältet och navbaren under sökfältet har ingen funktionalitet
-- köpa verkligen
+- registrera sig och logga in. det finns ingenting och göra med profiler och användare.
+- sökfältet och navbaren under sökfältet har ingen funktionalitet.
+- köpa verkligen.
 
 ## Backend
 
