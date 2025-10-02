@@ -1,19 +1,16 @@
 <template>
   <section class="carousel__section wrapper">
-  <section class="carousel">
-    <div class="carousel__container">
-      <div
-        v-for="(image, index) in images"
-        :key="index"
-        class="carousel__slide"
-      >
-        <img :src="image" alt="Carousel Image" />
+    <section class="carousel">
+      <div class="carousel__container">
+        <div v-for="(image, index) in fullImagePaths" :key="index" class="carousel__slide">
+          <img :src="image" alt="Carousel Image" />
+        </div>
       </div>
-    </div>
-    <div class="carousel__text">Planet Saints</div>
-  </section>
+      <div class="carousel__text">Planet Saints</div>
+    </section>
   </section>
 </template>
+
 
 <script>
 export default {
@@ -21,37 +18,25 @@ export default {
   data() {
     return {
       images: [
-        'src/assets/products-imgs/SaintsFlowWallpaper.png',
-        'src/assets/products-imgs/5wwvfjozycc91.jpg',
-        'src/assets/products-imgs/6470745613_3660e26c19_b.jpg'
+        'SaintsFlowWallpaper.png',
+        '5wwvfjozycc91.jpg',
+        '6470745613_3660e26c19_b.jpg'
       ],
-      currentIndex: 0,
-      interval: null
+      basePath: import.meta.env.DEV 
+        ? '/src/assets/products-imgs/'  // Ha localhoston fut
+        : `${this.$s3bucket}/assets/products-imgs/`  // Ha éles környezetben fut
     };
   },
-  mounted() {
-    this.startAutoSlide();
-  },
-  beforeDestroy() {
-    this.stopAutoSlide();
-  },
-  methods: {
-    prevSlide() {
-      this.currentIndex =
-        (this.currentIndex - 1 + this.images.length) % this.images.length;
-    },
-    nextSlide() {
-      this.currentIndex = (this.currentIndex + 1) % this.images.length;
-    },
-    startAutoSlide() {
-      this.interval = setInterval(this.nextSlide, 3000);
-    },
-    stopAutoSlide() {
-      clearInterval(this.interval);
+  computed: {
+    fullImagePaths() {
+      return this.images.map(img => `${this.basePath}${img}`);
     }
   }
 };
 </script>
+
+
+
 
 <style>
 .carousel__section {

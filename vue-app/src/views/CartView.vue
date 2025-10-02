@@ -1,6 +1,6 @@
 <template>
   <section class="cart__view wrapper">
-    <HeaderTop />
+    <HeaderTop @show-login="showLogin = true" @show-signup="showSignUp = true" />
     <h2>Cart</h2>
     <div v-if="cart.length === 0" class="empty-cart">
       <p>Cart is empty.</p>
@@ -28,17 +28,29 @@
       </div>
     </div>
   </section>
+  <Login v-if="showLogin" @close="showLogin = false" />
+  <SignUp v-if="showSignUp" @close="showSignUp = false" />
 </template>
 
 <script>
 import HeaderTop from '@/components/Header/HeaderTop.vue'
+import Login from '../components/SignIn/Login.vue'
+import SignUp from '../components/SignIn/SignUp.vue'
 import { computed } from 'vue';
 import { cart, removeFromCart, clearCart } from "@/stores/cartStore.js";
 
 export default {
   name: 'CartView',
   components: {
-    HeaderTop
+    HeaderTop,
+    Login,
+    SignUp
+  },
+  data() {
+    return {
+      showLogin: false,
+      showSignUp: false
+    }
   },
   setup() {
     const totalPrice = computed(() => {
@@ -74,7 +86,6 @@ export default {
   min-height: 65vh;
   padding: 0 1rem 2rem 1rem;
   margin: auto;
-  z-index: 1;
   position: relative;
 }
 
@@ -101,7 +112,7 @@ export default {
 }
 
 .cart__item-title {
-  color:rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.75);
   font-family: 'Syne', sans-serif;
   text-transform: uppercase;
   font-size: 1.2rem;
@@ -109,7 +120,7 @@ export default {
 }
 
 .cart__item-detail {
-  color:rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.75);
   font-family: 'Syne', sans-serif;
   text-transform: uppercase;
   font-size: 1.1rem;
@@ -118,9 +129,10 @@ export default {
 .cart-total {
   margin-top: 20px;
 }
+
 .cart-total p {
   font-size: 1.6rem;
-  color:rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.75);
   font-family: 'Syne', sans-serif;
   text-transform: uppercase;
 }

@@ -1,11 +1,7 @@
 <template>
   <section class="products__grid">
     <template v-if="filteredProducts.length > 0">
-      <ProductsViewGridItem 
-        v-for="product in filteredProducts"
-        :key="product.id"
-        :product="product"
-      />
+      <ProductsViewGridItem v-for="product in filteredProducts" :key="product.id" :product="product" />
     </template>
     <p v-else class="no-products">There are no products available in this category.</p>
   </section>
@@ -52,7 +48,7 @@ export default {
       if (selectedCategories.value.length === 0) {
         return products.value;
       }
-      return products.value.filter(product => 
+      return products.value.filter(product =>
         selectedCategories.value.includes(product.category)
       );
     });
@@ -65,15 +61,16 @@ export default {
 
 <style>
 .products__grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2px;
-    height: fit-content;
-    width: fit-content;
-    padding-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  height: fit-content;
+  width: fit-content;
+  padding-top: 4rem;
 }
+
 .products__view .products__grid {
-    padding-bottom: 4rem;
+  padding-bottom: 4rem;
 }
 
 @media screen and (max-width: 1450px) {
@@ -84,20 +81,27 @@ export default {
 
 @media screen and (max-width: 1140px) {
   .products__grid {
-        grid-template-columns: repeat(3, 1fr);
-        width: fit-content;
-        margin: 0 auto;
-    }
+    grid-template-columns: repeat(3, 1fr);
+    width: fit-content;
+    margin: 0 auto;
+  }
 }
+
 @media screen and (max-width: 980px) {
   .products__grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media screen and (max-width: 860px) {
   .products__grid {
-        grid-template-columns: 1fr 1fr;
-    }
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .products__view .products__grid {
+    padding-top: 1rem;
+  }
 }
 </style>

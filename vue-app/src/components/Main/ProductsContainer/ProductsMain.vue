@@ -2,7 +2,7 @@
     <section class="products__main">
         <h2>Products</h2>
         <ProductsGrid />
-        <a class="animated-btn" href="/products">See all</a>
+        <a class="animated-btn products__main-see-all-btn" href="/products">See all</a>
     </section>
 </template>
 
@@ -25,6 +25,7 @@ export default {
     padding-right: 2rem;
     padding-bottom: 2rem;
 }
+
 .products__main h2 {
     font-size: 1.5rem;
     margin: 0 0 1rem 0;
@@ -33,7 +34,7 @@ export default {
     border-bottom: 1px solid var(--clr-light);
 }
 
-.products__main a {
+.products__main .products__main-see-all-btn {
     text-decoration: none;
     background-color: black;
     font-size: 1.2rem;
@@ -48,5 +49,4 @@ export default {
         padding: 1rem;
     }
 }
-
 </style>

@@ -50,7 +50,7 @@ export default {
 .footer__info h1 {
     font-family: 'Poppins', sans-serif;
     font-size: 2em;
-    transform: scale(1, 0.7);
+    transform: scale(1, 0.6);
     font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;

@@ -1,7 +1,10 @@
 
 <template>
   <header class="header">
-        <HeaderTop />
+        <HeaderTop 
+          @show-login="$emit('show-login')"
+          @show-signup="$emit('show-signup')"
+        />
         <SearchInput />
         <Navbar />
     </header>

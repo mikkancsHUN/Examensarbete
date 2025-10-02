@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProductsView from '../views/ProductsView.vue'
+import ProductDetails from '../views/ProductDetails.vue'
 import CartView from '../views/CartView.vue'
 import FavoritesView from '../views/FavoritesView.vue'
 
@@ -14,6 +15,12 @@ const routes = [
     path: '/products',
     name: 'Products',
     component: ProductsView
+  },
+  {
+    path: '/products/:id',   // dinamikus route paraméter
+    name: 'ProductDetails',
+    component: ProductDetails,
+    props: true
   },
   {
     path: '/cart',

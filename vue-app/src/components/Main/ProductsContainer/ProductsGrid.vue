@@ -1,11 +1,7 @@
 <template>
   <section class="products__grid">
     <template v-if="filteredProducts.length > 0">
-      <ProductsGridItem 
-        v-for="product in filteredProducts.slice(0, 8)" 
-        :key="product.id" 
-        :product="product" 
-      />
+      <ProductsGridItem v-for="product in filteredProducts.slice(0, 8)" :key="product.id" :product="product" />
     </template>
     <p v-else class="no-products">There are no products available in this category.</p>
   </section>
@@ -38,12 +34,12 @@ export default {
     onMounted(() => {
       fetchProducts();
     });
-    
+
     const filteredProducts = computed(() => {
       if (selectedCategories.value.length === 0) {
         return products.value;
       }
-      return products.value.filter(product => 
+      return products.value.filter(product =>
         selectedCategories.value.includes(product.category)
       );
     });
@@ -56,37 +52,36 @@ export default {
 };
 </script>
 
-  
+
 
 <style>
 .home__view .products__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
-    width: fit-content;
-    padding-top: 1rem;
-    padding-bottom: 2rem;
-    height: fit-content;
-    margin: 0 auto;
-    min-height: 400px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  width: fit-content;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  height: fit-content;
+  margin: 0 auto;
+  min-height: 400px;
 }
 
 .no-products {
-    font-size: 1.2rem;
-    color: #888;
-    margin: auto;
-  }
+  font-size: 1.2rem;
+  color: #888;
+  margin: auto;
+}
 
 @media screen and (max-width: 980px) {
-    .home__view .products__grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .home__view .products__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media screen and (max-width: 720px) {
-    .home__view .products__grid {
-        grid-template-columns: 1fr 1fr;
-    }
+  .home__view .products__grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-
 </style>

@@ -7,7 +7,7 @@
         </form>
         <section class="header__search-input-icons">
             <a href="">
-                <span class="material-symbols-outlined">person</span>
+                <span class="material-symbols-outlined" >person</span>
             </a>
             <a href="/favorites">
                 <span class="material-symbols-outlined">favorite</span>
@@ -31,7 +31,7 @@ export default {
         cursor: pointer;
         font-family: 'Poppins', sans-serif;
         font-size: 2.6em;
-        transform: scale(1, 0.7);
+        transform: scale(1, 0.6);
         font-weight: 500;
         letter-spacing: 3px;
         text-transform: uppercase;

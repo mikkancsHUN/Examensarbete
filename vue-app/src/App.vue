@@ -37,7 +37,7 @@ export default {
   height: 100%;
   max-width: 100vw;
   min-height: 100vh;
-  background: var(--clr-background); 
+  background: var(--clr-background);
   background-attachment: fixed;
 }
 </style>

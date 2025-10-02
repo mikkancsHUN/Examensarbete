@@ -1,26 +1,28 @@
 <template>
   <article class="products__grid-item">
-    <img :src="product.imageUrl || defaultImage" alt="Product Image">
-    <div class="products__item-wrapper">
-      <div class="products__item-info">
-        <h3 class="products__item-title">{{ product.name }}</h3>
-        <div>
-          <span class="products__item-category">{{ product.gender || "No Gender" }}</span>
-          <span class="products__item-category">{{ product.category || "No Category" }}</span>
+    <span class="products__item-like material-symbols-outlined" :class="{ liked: isFavorite }"
+      @click.stop="toggleFavorite(product)">
+      favorite
+    </span>
+    <router-link :to="`/products/${product.id}`" class="products__link">
+      <img :src="product.imageUrl || defaultImage" alt="Product Image" />
+      <div class="products__item-wrapper">
+        <div class="products__item-info">
+          <h3 class="products__item-title">{{ product.name }}</h3>
+          <div>
+            <span class="products__item-category">{{ product.gender || "No Gender" }}</span>
+            <span class="products__item-category">{{ product.category || "No Category" }}</span>
+          </div>
+          <span class="products__item-price">${{ product.price }}</span>
         </div>
-        <span class="products__item-price">${{ product.price }}</span>
-        <span 
-          class="products__item-like material-symbols-outlined"
-          :class="{ liked: isFavorite }"
-          @click="toggleFavorite(product)"
-        >
-          favorite
-        </span>
       </div>
-      <button @click="addToCart(product)" class="animated-btn">Purchase</button>
-    </div>
+    </router-link>
+    <button @click.prevent="addToCart(product)" class="animated-btn">
+      Purchase
+    </button>
   </article>
 </template>
+
 
 <script>
 import { favorites, toggleFavorite } from "@/stores/favoritesStore.js";
@@ -51,106 +53,126 @@ export default {
 };
 </script>
 
-  <style>
-  .products__grid-item {
-      background: black;
-      border-radius: 0.25rem;
-      display: grid;
-      grid-template-rows: auto 1fr;
-      transition: 0.2s;
-      cursor: pointer;
-      max-width: 270px;
-      width: 270px;
-      height: 455px;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-  }
+<style scoped>
+.products__grid-item {
+  background: rgb(0, 0, 0);
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.2s;
+  cursor: pointer;
+  max-width: 270px;
+  width: 270px;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
 
-  .products__item-wrapper {
-    padding: 1rem;
-    height: 100%;
-    width: 100%;
-  }
+.products__link {
+  color: inherit;
+  text-decoration: none;
+  height: fit-content;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: left;
+}
 
-  .products__item-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding-bottom: 0;
-      width: 100%;
-      height: 70%;
-  }
-  
-  .products__grid-item img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      border-top-left-radius: 0.25rem;
-      border-top-right-radius: 0.25rem;
-  }
+.products__item-wrapper {
+  height: 100%;
+  padding: 1rem 1rem 0 1rem;
+}
 
-  .products__grid-item button {
-      width: 100%;
-  }
-  
-  .products__item-title {
-    color:rgba(255, 255, 255, 0.75);
-    font-family: 'Syne', sans-serif;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-  }
-  
-  .products__item-category {
-      color:rgba(255, 255, 255, 0.75);
-      font-family: 'Syne', sans-serif;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      margin-right: 10px;
-  }
-  
-  .products__item-price {
-      color:rgba(255, 255, 255, 0.75);
-      font-size: 1.3rem;
-  }
+.products__item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.products__grid-item img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.products__grid-item button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  flex-shrink: 0;
+  height: 60px;
+  max-height: 60px;
+
+  /* megakadályozza, hogy összenyomódjon */
+}
+
+
+.products__item-title {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Syne', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+.products__item-category {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Syne', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-right: 10px;
+}
+
+.products__item-price {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.3rem;
+}
 
 @media screen and (max-width: 577px) {
-    .products__grid-item {
-      height: 400px;
-      width: 203px;
-      margin: 0;
-    }
-    .products__item-title {
-    color:rgba(255, 255, 255, 0.75);
+  .products__grid-item {
+    height: 400px;
+    width: 203px;
+    margin: 0;
+  }
+
+  .products__item-title {
+    color: rgba(255, 255, 255, 0.75);
     font-family: 'Syne', sans-serif;
     text-transform: uppercase;
     font-size: 0.9rem;
   }
 
   .products__item-category {
-    color:rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.75);
     font-family: 'Syne', sans-serif;
     text-transform: uppercase;
     font-size: 0.8rem;
   }
 
-.products__item-price {
-    color:rgba(255, 255, 255, 0.75);
+  .products__item-price {
+    color: rgba(255, 255, 255, 0.75);
     text-transform: uppercase;
     font-size: 1rem;
+  }
 }
-}    
 
 @media screen and (max-width: 442px) {
   .products__grid-item {
-      height: 360px;
-      width: 170px;
-    }
+    height: 360px;
+    width: 170px;
+  }
 }
 
 @media screen and (max-width: 400px) {
   .products__grid-item {
-      width: 155px;
-    }
+    width: 155px;
+  }
 }
-  </style>
+</style>

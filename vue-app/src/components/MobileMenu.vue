@@ -64,7 +64,7 @@ export default {
 
 .mobile-menu h1 {
     font-size: 1.6em;
-    transform: scale(1, 0.7) translateY(-3rem);
+    transform: scale(1, 0.6) translateY(-3rem);
     font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;
