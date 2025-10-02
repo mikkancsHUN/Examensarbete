@@ -17,7 +17,7 @@ const routes = [
     component: ProductsView
   },
   {
-    path: '/products/:id',   // dinamikus route paraméter
+    path: '/products/:id',
     name: 'ProductDetails',
     component: ProductDetails,
     props: true
