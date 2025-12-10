@@ -1,7 +1,7 @@
 <template>
   <section class="products__grid">
     <template v-if="filteredProducts.length > 0">
-      <ProductsViewGridItem v-for="product in filteredProducts" :key="product.id" :product="product" />
+      <ProductsGridItem v-for="product in filteredProducts" :key="product.id" :product="product" />
     </template>
     <p v-else class="no-products">There are no products available in this category.</p>
   </section>
@@ -10,13 +10,13 @@
 
 <script>
 import { ref, onMounted, computed } from "vue";
-import ProductsViewGridItem from "./ProductsViewGridItem.vue";
 import { selectedCategories } from "@/stores/categoryStore.js";
+import ProductsGridItem from "../Products/ProductsGridItem.vue";
 
 export default {
   name: 'ProductsViewGrid',
   components: {
-    ProductsViewGridItem
+    ProductsGridItem
   },
   setup() {
     const products = ref([]);
@@ -58,8 +58,7 @@ export default {
 };
 </script>
 
-
-<style>
+<style scoped>
 .products__grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -71,6 +70,12 @@ export default {
 
 .products__view .products__grid {
   padding-bottom: 4rem;
+}
+
+.no-products {
+  font-size: 1.2rem;
+  color: #888;
+  margin: auto;
 }
 
 @media screen and (max-width: 1450px) {

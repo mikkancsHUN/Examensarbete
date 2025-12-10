@@ -10,9 +10,9 @@
 
 <script>
 import { computed, ref, onMounted } from "vue";
-import ProductsGridItem from './ProductsGridItem.vue';
 import axios from 'axios';
 import { selectedCategories } from "@/stores/categoryStore.js";
+import ProductsGridItem from "../../Products/ProductsGridItem.vue";
 
 export default {
   name: 'ProductsGrid',
@@ -52,9 +52,7 @@ export default {
 };
 </script>
 
-
-
-<style>
+<style scoped>
 .home__view .products__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
